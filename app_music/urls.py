@@ -11,7 +11,3 @@ urlpatterns = [
     path('form_profesor/', views.form_profesor, name="Form_Profesor"),
     path('buscar_curso/', views.buscar_curso, name="Buscar_Curso"),
 ]
-
-
-
-
