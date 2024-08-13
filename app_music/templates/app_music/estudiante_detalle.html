@@ -1,0 +1,16 @@
+{% extends 'app_music/base.html' %}
+
+{% load static %}
+
+{% block title %} Formulario Estudiante {% endblock title %}
+
+{% block main %}
+<h1>Detalle del estudiante</h1>
+
+<p>Nombre: <i>{{estudiante.nombre}}</i></p>
+<p>Apellido: <i>{{estudiante.apellido}}</i></p>
+<p>Email: <i>{{estudiante.email}}</i></p>
+<p>
+    <a href="{% url 'ListarEstudiantes'%}">Regresar</a>
+</p>
+{% endblock main %}

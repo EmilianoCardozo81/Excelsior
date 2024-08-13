@@ -5,11 +5,15 @@
 {% block title %} Formulario Estudiante {% endblock title %}
 
 {% block main %}
+        
     {% for estudiante in Estudiantes %}
         <p>Nombre: {{estudiante.apellido}}, {{estudiante.nombre}}</p>
         <a href="{% url 'EstudianteBorrar' estudiante.pk %}">Borrar</a>
         -
         <a href="{% url 'ActualizaEstudiante' estudiante.pk %}">Actualizar</a>
+        -
+        <a href="{% url 'EstudianteDetalle' estudiante.pk %}">Ver</a>
     {% endfor %}
-   
-{% endblock main %}
+    <br><br><br>
+    <a href="{% url 'NuevoEstudiante' %}">Generar Nuevo Estudiante</a><br>
+    {% endblock main %}

@@ -5,14 +5,12 @@
 {% block title %} Formulario Estudiante {% endblock title %}
 
 {% block main %}
-    
     <form action="" method="POST">
         {% csrf_token %}
-        
-        <table>
-            {{ mi_form.as_table }}
-        </table>
-        <input type="submit" value="Enviar">
+        {{form.as_p}}
+        <input type="submit" value="Crear">
 
     </form>
+    
+   
 {% endblock main %}

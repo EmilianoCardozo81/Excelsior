@@ -23,6 +23,16 @@ class EstudianteUpdateView(UpdateView):
     success_url = reverse_lazy("ListarEstudiantes") 
     fields = ['nombre','apellido']
 
+class EstudianteCreateView(CreateView):
+    model = Estudiante
+    template_name = "app_music/estudiante_nuevo.html"
+    success_url = reverse_lazy("ListarEstudiantes") 
+    fields = ['nombre','apellido','email']
+
+class EstudianteDetailView(DetailView):
+    model = Estudiante
+    template_name = "app_music/estudiante_detalle.html"
+    
 
 
 
@@ -34,9 +44,6 @@ def cursos(request):
 
 def profesores(request):
     return render (request, "app_music/profesores.html")
-
-def estudiantes(request):
-    return render (request, "app_music/estudiantes.html")
 
 def entregables(request):
     return render (request, "app_music/entregables.html")
@@ -56,21 +63,6 @@ def form_curso(request):
         mi_formulario = CursoFormulario()
 
     return render(request, "app_music/form_curso.html", {"mi_formulario": mi_formulario})
-
-def form_estudiante(request):
-    if request.method == "POST":
-        mi_form = EstudianteFormulario(request.POST) 
-        if mi_form.is_valid():
-            informacion = mi_form.cleaned_data
-            
-            estudiante = Estudiante(nombre=informacion["nombre"], apellido=informacion["apellido"],email=informacion["email"])
-            estudiante.save()
-
-            return render(request, "app_music/index.html")
-    else:
-        mi_form = EstudianteFormulario()
-
-    return render(request, "app_music/form_estudiante.html", {"mi_form": mi_form})
 
 def buscar_curso(request):
     if request.method == "POST":
