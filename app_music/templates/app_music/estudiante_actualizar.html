@@ -1,0 +1,13 @@
+{% extends 'app_music/base.html' %}
+
+{% load static %}
+
+{% block title %} Formulario Estudiante {% endblock title %}
+
+{% block main %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Editar">
+    </form>
+{% endblock main %}

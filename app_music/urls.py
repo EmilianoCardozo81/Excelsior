@@ -10,4 +10,7 @@ urlpatterns = [
     path('form_estudiante/', views.form_estudiante, name="Form_Estudiante"),
     path('form_profesor/', views.form_profesor, name="Form_Profesor"),
     path('buscar_curso/', views.buscar_curso, name="Buscar_Curso"),
+    path('estudiantes/listar', views.EstudianteListView.as_view(), name ="ListarEstudiantes"),
+    path('estudiantes/<pk>/borrar', views.EstudianteDeleteView.as_view(), name ="EstudianteBorrar"),
+    path('estudiantes/<pk>/actualiza', views.EstudianteUpdateView.as_view(), name ="ActualizaEstudiante"),
 ]

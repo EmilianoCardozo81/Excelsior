@@ -1,0 +1,16 @@
+{% extends 'app_music/base.html' %}
+
+{% load static %}
+
+{% block title %} Formulario Estudiante {% endblock title %}
+
+{% block main %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        Seguro quiere eliminar al estudiante: {{estudiante.nombre}}, {{estudiante.apellido}}
+        <input type="submit" value="Eliminar">
+
+    </form>
+    
+   
+{% endblock main %}

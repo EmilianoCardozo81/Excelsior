@@ -2,6 +2,28 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from app_music.models import *
 from app_music.forms import *
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
+class EstudianteListView(ListView):
+    model = Estudiante
+    context_object_name ="Estudiantes"
+    template_name = "app_music/lista_estudiantes.html"
+
+class EstudianteDeleteView(DeleteView):
+    model = Estudiante
+    template_name = "app_music/estudiante_borrar.html"
+    success_url = reverse_lazy("ListarEstudiantes")
+
+class EstudianteUpdateView(UpdateView):
+    model = Estudiante
+    template_name = "app_music/estudiante_actualizar.html"
+    success_url = reverse_lazy("ListarEstudiantes") 
+    fields = ['nombre','apellido']
+
+
 
 
 def inicio(request):

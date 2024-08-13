@@ -1,0 +1,15 @@
+{% extends 'app_music/base.html' %}
+
+{% load static %}
+
+{% block title %} Formulario Estudiante {% endblock title %}
+
+{% block main %}
+    {% for estudiante in Estudiantes %}
+        <p>Nombre: {{estudiante.apellido}}, {{estudiante.nombre}}</p>
+        <a href="{% url 'EstudianteBorrar' estudiante.pk %}">Borrar</a>
+        -
+        <a href="{% url 'ActualizaEstudiante' estudiante.pk %}">Actualizar</a>
+    {% endfor %}
+   
+{% endblock main %}
