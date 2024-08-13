@@ -10,7 +10,7 @@
         <p>Nombre: {{curso.nombre}}, <br> Camada: {{curso.camada}}</p>
         <a href="{% url 'CursoBorrar' curso.pk %}">Borrar</a>
         -
-        <a href="{% url 'ActualizarCurso' curso.pk %}">Actualizar</a>
+        <a href="{% url 'ActualizaCurso' curso.pk %}">Actualizar</a>
         -
         <a href='{% url "CursoDetalle" curso.pk %}'>Ver</a>
     {% endfor %}

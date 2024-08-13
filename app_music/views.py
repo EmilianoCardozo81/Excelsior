@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from app_music.models import *
 from app_music.forms import *
 from django.views.generic import ListView
@@ -46,9 +45,11 @@ class CursoDetailView(DetailView):
 
 class CursoUpdateView(UpdateView):
     model = Curso
-    templante_name="app_music/cursos_actualizar.html"
+    templante_name="app_music/cursos_actualiza.html"
     success_url = reverse_lazy("ListarCursos")
     fields = ['nombre','camada']
+    
+
 
 class CursoDeleteView(DeleteView):
     model = Curso

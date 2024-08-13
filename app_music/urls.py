@@ -16,6 +16,6 @@ urlpatterns = [
     path('cursos/listar', views.CursoListView.as_view(), name ="ListarCursos"),
     path('cursos/nuevo', views.CursoCreateView.as_view(), name ="NuevoCurso"),
     path('cursos/<pk>/borrar', views.CursoDeleteView.as_view(), name ="CursoBorrar"),
-    path('cursos/<pk>/actualizar', views.CursoUpdateView.as_view(), name ="ActualizarCurso"),
+    path('cursos/<pk>/actualiza', views.CursoUpdateView.as_view(), name ="ActualizaCurso"),
     path('cursos/<pk>/detalle', views.CursoDetailView.as_view(), name ="CursoDetalle"),
 ]
