@@ -2,15 +2,12 @@
 
 {% load static %}
 
-{% block title %} generar curso {% endblock title %}
+{% block title %} Formulario cursos {% endblock title %}
 
 {% block main %}
     <form action="" method="POST">
         {% csrf_token %}
         {{form.as_p}}
-        <input type="submit" value="Generar">
-
+        <input type="submit" value="Editar">
     </form>
-    
-   
 {% endblock main %}

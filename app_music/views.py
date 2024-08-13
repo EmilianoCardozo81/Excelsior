@@ -34,10 +34,10 @@ class CursoListView(ListView):
     context_object_name = "cursos"
     template_name = "app_music/lista_cursos.html"
 
-class CursoCreateView(ListView):
+class CursoCreateView(CreateView):
     model = Curso
     template_name = "app_music/cursos_crear.html"
-    success_url = reverse_lazy('ListarCursos')
+    success_url = reverse_lazy("ListarCursos")
     fields = ['nombre','camada']
 
 class CursoDetailView(DetailView):
@@ -46,8 +46,8 @@ class CursoDetailView(DetailView):
 
 class CursoUpdateView(UpdateView):
     model = Curso
-    templante_name="app_music/curso_editar.html"
-    success_url = reverse_lazy('ListarCursos')
+    templante_name="app_music/cursos_actualizar.html"
+    success_url = reverse_lazy("ListarCursos")
     fields = ['nombre','camada']
 
 class CursoDeleteView(DeleteView):
