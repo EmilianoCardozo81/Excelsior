@@ -13,4 +13,9 @@ urlpatterns = [
     path('estudiantes/<pk>/borrar', views.EstudianteDeleteView.as_view(), name ="EstudianteBorrar"),
     path('estudiantes/<pk>/actualiza', views.EstudianteUpdateView.as_view(), name ="ActualizaEstudiante"),
     path('estudiantes/<pk>/detalle', views.EstudianteDetailView.as_view(), name ="EstudianteDetalle"),
+    path('cursos/listar', views.CursoListView.as_view(), name ="ListarCursos"),
+    path('cursos/nuevo', views.CursoCreateView.as_view(), name ="NuevoCurso"),
+    path('cursos/<pk>/borrar', views.CursoDeleteView.as_view(), name ="CursoBorrar"),
+    path('cursos/<pk>/editar', views.CursoUpdateView.as_view(), name ="EditarCurso"),
+    path('cursos/<pk>/detalle', views.CursoDetailView.as_view(), name ="CursoDetalle"),
 ]

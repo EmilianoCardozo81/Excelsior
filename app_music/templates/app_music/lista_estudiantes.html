@@ -5,7 +5,7 @@
 {% block title %} Formulario Estudiante {% endblock title %}
 
 {% block main %}
-        
+<h4>Estudiante</h4>
     {% for estudiante in Estudiantes %}
         <p>Nombre: {{estudiante.apellido}}, {{estudiante.nombre}}</p>
         <a href="{% url 'EstudianteBorrar' estudiante.pk %}">Borrar</a>

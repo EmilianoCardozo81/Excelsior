@@ -11,29 +11,49 @@ class EstudianteListView(ListView):
     model = Estudiante
     context_object_name ="Estudiantes"
     template_name = "app_music/lista_estudiantes.html"
-
 class EstudianteDeleteView(DeleteView):
     model = Estudiante
     template_name = "app_music/estudiante_borrar.html"
     success_url = reverse_lazy("ListarEstudiantes")
-
 class EstudianteUpdateView(UpdateView):
     model = Estudiante
     template_name = "app_music/estudiante_actualizar.html"
     success_url = reverse_lazy("ListarEstudiantes") 
     fields = ['nombre','apellido']
-
 class EstudianteCreateView(CreateView):
     model = Estudiante
     template_name = "app_music/estudiante_nuevo.html"
     success_url = reverse_lazy("ListarEstudiantes") 
     fields = ['nombre','apellido','email']
-
 class EstudianteDetailView(DetailView):
     model = Estudiante
     template_name = "app_music/estudiante_detalle.html"
     
+class CursoListView(ListView):
+    model = Curso
+    context_object_name = "cursos"
+    template_name = "app_music/lista_cursos.html"
 
+class CursoCreateView(ListView):
+    model = Curso
+    template_name = "app_music/cursos_crear.html"
+    success_url = reverse_lazy('ListarCursos')
+    fields = ['nombre','camada']
+
+class CursoDetailView(DetailView):
+    model= Curso
+    templante_name="app_music/curso_detalle.html"
+
+class CursoUpdateView(UpdateView):
+    model = Curso
+    templante_name="app_music/curso_editar.html"
+    success_url = reverse_lazy('ListarCursos')
+    fields = ['nombre','camada']
+
+class CursoDeleteView(DeleteView):
+    model = Curso
+    template_name="app_music/curso_eliminar.html"
+    success_url = reverse_lazy('ListarCursos')
 
 
 def inicio(request):

@@ -1,0 +1,17 @@
+{% extends 'app_music/base.html' %}
+
+{% load static %}
+
+{% block title %} Formulario Curso {% endblock title %}
+
+{% block main %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        Seguro quiere eliminar el curso: {{curso.nombre}}
+        <input type="submit" value="Eliminar">
+
+    </form>
+    
+   
+{% endblock main %}
