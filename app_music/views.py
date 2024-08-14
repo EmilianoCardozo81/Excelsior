@@ -11,7 +11,7 @@ from django.urls import reverse_lazy
 
 
 
-class EstudianteListView(ListView):
+class EstudianteListView(LoginRequiredMixin,ListView):
     model = Estudiante
     context_object_name ="Estudiantes"
     template_name = "app_music/lista_estudiantes.html"
