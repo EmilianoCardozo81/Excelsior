@@ -8,6 +8,7 @@
 <h4>Cursos</h4>
     {% for curso in cursos %}
         <p>Nombre: {{curso.nombre}}</p>
+        <a href='{% url "CursoDetalle" curso.pk %}'>Ver</a>
         {% if request.user.is_superuser%}
         -
         <a href="{% url 'CursoBorrar' curso.pk %}">Borrar</a>
@@ -15,8 +16,7 @@
         <a href="{% url 'ActualizaCurso' curso.pk %}">Actualizar</a>
         -
         {%endif%}
-        
-        <a href='{% url "CursoDetalle" curso.pk %}'>Ver</a>
+                
     {% endfor %}
     <br><br><br>
     <h4><a href="{% url 'NuevoCurso' %}">Generar Nuevo Curso</a></h4><br>
