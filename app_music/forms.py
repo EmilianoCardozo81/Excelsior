@@ -1,5 +1,6 @@
 from django import forms
 from django.views.generic import ListView
+from django.views.generic.edit import UpdateView
 
 class CursoFormulario(forms.Form):
     curso = forms.CharField()
