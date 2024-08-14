@@ -8,11 +8,17 @@
 <h4>Estudiante</h4>
     {% for estudiante in Estudiantes %}
         <p>Nombre: {{estudiante.apellido}}, {{estudiante.nombre}}</p>
+        <a href="{% url 'EstudianteDetalle' estudiante.pk %}">Ver</a>
+        
+        {% if request.user.is_superuser%}
+        -
         <a href="{% url 'EstudianteBorrar' estudiante.pk %}">Borrar</a>
         -
         <a href="{% url 'ActualizaEstudiante' estudiante.pk %}">Actualizar</a>
         -
-        <a href="{% url 'EstudianteDetalle' estudiante.pk %}">Ver</a>
+        {% endif %}
+        
+        
     {% endfor %}
     <br><br><br>
     <a href="{% url 'NuevoEstudiante' %}">Generar Nuevo Estudiante</a><br>

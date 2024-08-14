@@ -7,11 +7,15 @@
 {% block main %}
 <h4>Cursos</h4>
     {% for curso in cursos %}
-        <p>Nombre: {{curso.nombre}}, <br> Camada: {{curso.camada}}</p>
+        <p>Nombre: {{curso.nombre}}</p>
+        {% if request.user.is_superuser%}
+        -
         <a href="{% url 'CursoBorrar' curso.pk %}">Borrar</a>
         -
         <a href="{% url 'ActualizaCurso' curso.pk %}">Actualizar</a>
         -
+        {%endif%}
+        
         <a href='{% url "CursoDetalle" curso.pk %}'>Ver</a>
     {% endfor %}
     <br><br><br>
