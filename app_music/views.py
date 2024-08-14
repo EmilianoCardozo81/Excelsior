@@ -1,10 +1,14 @@
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from app_music.models import *
 from app_music.forms import *
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+
+
 
 class EstudianteListView(ListView):
     model = Estudiante
@@ -28,7 +32,7 @@ class EstudianteDetailView(DetailView):
     model = Estudiante
     template_name = "app_music/estudiante_detalle.html"
     
-class CursoListView(ListView):
+class CursoListView(LoginRequiredMixin,ListView):
     model = Curso
     context_object_name = "cursos"
     template_name = "app_music/lista_cursos.html"
@@ -62,6 +66,7 @@ def inicio(request):
 
 def cursos(request):
     return render (request, "app_music/cursos.html")
+
 
 def profesores(request):
     return render (request, "app_music/profesores.html")
@@ -99,7 +104,8 @@ def buscar_curso(request):
         mi_formulario = BuscaCursoForm()
 
     return render(request, "app_music/buscar_curso.html", {"mi_formulario": mi_formulario})
-    
+
+@login_required    
 def form_profesor(request):
     if request.method == "POST":
         mi_formulario = ProfesorFormulario(request.POST) 
