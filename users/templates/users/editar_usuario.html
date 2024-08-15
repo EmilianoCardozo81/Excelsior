@@ -1,0 +1,25 @@
+{% extends 'app_music/base.html' %}
+
+{% load static %}
+
+{% block title %} Editar usuario {% endblock title %}
+
+{% block main %}
+ 
+    <div class="d-flex justify-content-center">
+ 
+        <div class="d-flex flex-column">
+   
+            
+            <form action="" method="POST">
+                {% csrf_token %}
+                <table>
+                {{ form.as_table }}
+                </table>
+                <input type="submit" value="Modificar">
+
+            </form>
+
+        </div>
+    </div>
+{% endblock main %}

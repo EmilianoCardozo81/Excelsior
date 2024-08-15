@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
-from users.forms import UserRegisterForm
+from users.forms import UserRegisterForm, UserEditForm
+from django.contrib.auth.decorators import login_required
 
 def login_request(request):
 
@@ -42,3 +43,21 @@ def register(request):
 
     form = UserRegisterForm()     
     return render(request,"users/registro.html" ,  {"form":form, "msg_register": msg_register})
+
+
+@login_required
+def editar_usuario(request):
+
+    usuario = request.user
+
+    if request.method == 'POST':
+
+        Formulario = UserEditForm(request.POST, instance=request.user)
+        if Formulario.is_valid():
+            Formulario.save()
+            return render(request, "app_music/index.html")
+
+    else:
+        Formulario = UserEditForm(instance=request.user)
+
+    return render(request,"users/editar_usuario.html",{"form": Formulario,"usuario": usuario})
