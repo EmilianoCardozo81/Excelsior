@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
+from users.models import Avatar
 
 
 
@@ -57,8 +58,12 @@ def editar_usuario(request):
 
     if request.method == 'POST':
 
-        Formulario = UserEditForm(request.POST, instance=usuario)
+        Formulario = UserEditForm(request.POST, request.FILES, instance=usuario)
         if Formulario.is_valid():
+            if Formulario.cleaned_data.get("imagen"):
+                avatar = Avatar(user=usuario, imagen=Formulario.cleaned_data.get("imagen"))
+                #usuario.avatar.imagen = Formulario.cleaned_data.get("imagen")
+                avatar.save()
             Formulario.save()
             return render(request, "app_music/index.html")
 
