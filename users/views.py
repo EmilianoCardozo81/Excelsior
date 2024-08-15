@@ -3,6 +3,11 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
 from users.forms import UserRegisterForm, UserEditForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import PasswordChangeView
+from django.urls import reverse_lazy
+
+
 
 def login_request(request):
 
@@ -52,12 +57,16 @@ def editar_usuario(request):
 
     if request.method == 'POST':
 
-        Formulario = UserEditForm(request.POST, instance=request.user)
+        Formulario = UserEditForm(request.POST, instance=usuario)
         if Formulario.is_valid():
             Formulario.save()
             return render(request, "app_music/index.html")
 
     else:
-        Formulario = UserEditForm(instance=request.user)
+        Formulario = UserEditForm(instance=usuario)
 
     return render(request,"users/editar_usuario.html",{"form": Formulario,"usuario": usuario})
+
+class CambiarClaveView(LoginRequiredMixin, PasswordChangeView):
+    template_name = "users/cambiar_clave.html"
+    success_url = reverse_lazy("EditarUsuario")

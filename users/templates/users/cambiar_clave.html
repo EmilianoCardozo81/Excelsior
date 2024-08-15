@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} Editar usuario {% endblock title %}
+{% block title %} Cambiar Clave {% endblock title %}
 
 {% block main %}
  
@@ -14,10 +14,10 @@
             <form action="" method="POST">
                 {% csrf_token %}
                 <table>
-                {{ form.as_table }}
+                {{form}}
                 </table>
-                <a class="btn btn-primary" href="{% url 'CambiarClave' %}">Cambiar Clave</a>
-                <input type="submit" value="Modificar">
+                <input type="submit" value="CambiarClave">
+
             </form>
 
         </div>
