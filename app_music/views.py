@@ -68,6 +68,9 @@ def inicio(request):
 def cursos(request):
     return render (request, "app_music/cursos.html")
 
+def about(request):
+    return render (request, "app_music/about.html")
+
 
 def profesores(request):
     return render (request, "app_music/profesores.html")

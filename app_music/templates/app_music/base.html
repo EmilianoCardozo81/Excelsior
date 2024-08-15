@@ -25,12 +25,14 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="{% url 'Inicio' %}">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'About'  %}">Autor</a></li>
                         <li class="nav-item"><a class="nav-link" href='{% url "ListarCursos" %}'>Cursos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'ListarEstudiantes' %}">Estudiantes</a></li>
                         {% if request.user.is_superuser %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'Form_Profesor' %}">Profesores</a></li>
                         {%endif%}
                         <li class="nav-item"><a class="nav-link" href="{% url 'Buscar_Curso'  %}">Buscar Curso</a></li>
+                        
                         
                     </ul>
                     {% if request.user.is_authenticated%}
