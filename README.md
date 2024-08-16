@@ -30,5 +30,5 @@ También agregue un usuario (Emiliano) que solo pueda visualizar que solo puede 
 ```
 
 **El proyecto tiene el nombre: excelsior**<br>
-**La aplicación tiene el nombre: app_music**
+**Las aplicacines tienen el nombre: app_music, users**
 
